@@ -1,6 +1,6 @@
 ### Information Modelling & Analysis: Project 1
 
-Student: *enter your name here*
+Student: *Navdeep Singh Bedi*
 
 ### Project instructions:
 Please follow the instructions provided in the project slides.

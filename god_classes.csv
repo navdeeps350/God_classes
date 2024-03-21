@@ -1,0 +1,6 @@
+class_name,path,method_num
+SchemaGrammar,./resources/xerces2-j-src/org/apache/xerces/impl/xs/SchemaGrammar.java,141
+XSDHandler,./resources/xerces2-j-src/org/apache/xerces/impl/xs/traversers/XSDHandler.java,129
+XSSimpleTypeDecl,./resources/xerces2-j-src/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl.java,149
+XIncludeHandler,./resources/xerces2-j-src/org/apache/xerces/xinclude/XIncludeHandler.java,122
+CoreDocumentImpl,./resources/xerces2-j-src/org/apache/xerces/dom/CoreDocumentImpl.java,125
