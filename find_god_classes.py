@@ -9,6 +9,7 @@ class GodClassFinder:
     def __init__(self, path: str):
         self.path = path
         self.god_class_dictionary = {'class_name': [], 'path': [], 'method_num': []}
+        
     def find_god_classes(self):
         for (dirpath, dirnames, filenames) in os.walk(self.path):
             for filename in filenames:
