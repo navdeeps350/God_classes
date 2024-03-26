@@ -78,5 +78,6 @@ if __name__ == '__main__':
                 else:
                     df.loc[method_name, field_name] = 0
         df.to_csv(f'{cls.split("/")[-1].split(".")[0]}.csv')
+        print(f'{cls.split("/")[-1].split(".")[0]}.csv has been created.')
 
 
