@@ -37,4 +37,4 @@ if __name__ == '__main__':
     data = {'num_clusters': k, 'k_means_silhouette_score': k_scores, 'hierarchical_clustering_silhouette_score': hierarchical_scores}
     df_scores = pd.DataFrame(data)
     df_scores.to_csv(f'silhouette_scores_{file_name}', index=False)
-    print(df_scores)
+    print(f'scores have been saved. Check the file silhouette_scores_{file_name} for the results.')

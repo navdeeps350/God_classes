@@ -22,9 +22,10 @@ class GodClassFinder:
                             # print(node.name)
                             self.god_class_dictionary['class_name'].append(node.name)
                             self.god_class_dictionary['path'].append(os.path.join(dirpath, filename))
-                            for path, method in node.filter(javalang.tree.MethodDeclaration):
+                            # for path, method in node.filter(javalang.tree.MethodDeclaration):
                                 # print(node.name)
-                                method_num += 1
+                                # method_num += 1
+                            method_num = len(node.methods)
                             self.god_class_dictionary['method_num'].append(method_num)
         return self.god_class_dictionary      
 
