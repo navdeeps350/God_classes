@@ -15,7 +15,8 @@ class utility:
     def get_methods(self, java_class):
         methods = []
         methods_name = []
-        for path, node in java_class.filter(javalang.tree.MethodDeclaration):
+        # for path, node in java_class.filter(javalang.tree.MethodDeclaration):
+        for node in java_class.methods:
             methods.append(node)
             methods_name.append(node.name)
         return methods, methods_name

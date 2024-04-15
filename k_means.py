@@ -17,4 +17,4 @@ if __name__ == '__main__':
     df = pd.DataFrame(data)
     file_name = os.path.splitext(file_name)[0]
     df.to_csv(f'{file_name}_clustering_kmeans.csv', index=False)
-    print('k-means clustering complete. Check file_name_clustering.csv for the results.')
+    print(f'k-means clustering complete. Check {file_name}_clustering_kmeans.csv for the results.')

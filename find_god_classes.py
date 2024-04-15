@@ -18,7 +18,7 @@ class GodClassFinder:
                     with open(os.path.join(dirpath, filename), 'r') as file:
                         tree = javalang.parse.parse(file.read())
                         for path, node in tree.filter(javalang.tree.ClassDeclaration):
-                            method_num = 0
+                            # method_num = 0
                             # print(node.name)
                             self.god_class_dictionary['class_name'].append(node.name)
                             self.god_class_dictionary['path'].append(os.path.join(dirpath, filename))

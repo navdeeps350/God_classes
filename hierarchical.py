@@ -16,4 +16,4 @@ if __name__ == '__main__':
     df = pd.DataFrame(data)
     file_name = os.path.splitext(file_name)[0]
     df.to_csv(f'{file_name}_clustering_hierarchical.csv', index=False)
-    print('hierarchical clustering complete. Check file_name_clustering.csv for the results.')
+    print(f'hierarchical clustering complete. Check {file_name}_clustering_hierarchical.csv for the results.')
