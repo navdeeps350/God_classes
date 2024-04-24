@@ -2,6 +2,8 @@ import javalang
 import os
 import pandas as pd
 from collections import Counter
+from iteration_utilities import flatten
+
 
 class utility:
 
@@ -44,10 +46,14 @@ class utility:
 
 if __name__ == '__main__':
     utility_class = utility()
-    god_classes = pd.read_csv('god_classes.csv')
+    
+    info_dict = {'class_name': [], '#feature_vectors': [], '#attributes': []}
+    god_classes = pd.read_csv('./results_csv/god_classes.csv')
     god_class_list = god_classes['path'].tolist()
     for cls in god_class_list:
         nes_dict = {}
+        accesses_field_list = []
+        accesses_method_list = []
         with open(cls, 'r') as file:
             tree = javalang.parse.parse(file.read())
             for path, class_name in tree.filter(javalang.tree.ClassDeclaration):
@@ -63,14 +69,23 @@ if __name__ == '__main__':
                             if a_m not in methods_name_list:
                                 accesses_method_dict.pop(a_m, None)
                         nes_dict[f'{method.name}'].update(accesses_method_dict)
+                        accesses_method_list.append(list(accesses_method_dict.keys()))
                         for a_f in accesses_field:
                             if a_f not in field_list:
                                 accesses_field_dict.pop(a_f, None)
                         nes_dict[f'{method.name}'].update(accesses_field_dict)
+                        accesses_field_list.append(list(accesses_field_dict.keys()))
+        info_dict['class_name'].append(cls.split('/')[-1].split('.')[0])
+        # print(accesses_field_list)
 
         row_list = list(set(methods_name_list))
-        column_list = list(set(methods_name_list)) + list(set(field_list))
+        # column_list = list(set(methods_name_list)) + list(set(field_list))
+        column_list = list(set(flatten(accesses_field_list))) + list(set(flatten(accesses_method_list)))
+        # print(len(row_list), len(column_list))
+        # print(len(row_list), len(set(flatten(accesses_field_list))) + len(set(flatten(accesses_method_list))))
         df = pd.DataFrame(columns=column_list, index=row_list)
+        info_dict['#feature_vectors'].append(len(row_list))
+        info_dict['#attributes'].append(len(column_list))
 
         for method_name in df.index:
             for field_name in df.columns:
@@ -78,7 +93,8 @@ if __name__ == '__main__':
                     df.loc[method_name, field_name] = 1
                 else:
                     df.loc[method_name, field_name] = 0
-        df.to_csv(f'{cls.split("/")[-1].split(".")[0]}.csv')
+        df.to_csv(f'./results_csv/{cls.split("/")[-1].split(".")[0]}.csv')
+        info_dataframe = pd.DataFrame.from_dict(info_dict)
+
         print(f'{cls.split("/")[-1].split(".")[0]}.csv has been created.')
-
-
+    print(info_dataframe)

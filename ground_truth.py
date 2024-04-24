@@ -33,8 +33,8 @@ class utility:
 if __name__ == '__main__':
     keywords = pd.read_csv('keywords.txt', header=None, names=['keywords'])
     # print(keywords)
-    file_name = input('Enter the name of the file containing the feature vectors: ')
-    df_lables = pd.read_csv(file_name, index_col=0)
+    file_path = input('Enter the path of the file containing the feature vectors: ')
+    df_lables = pd.read_csv(file_path, index_col=0)
     df_method_names = list(df_lables.index)
     utility_class = utility()
     grnd_dict = utility_class.ground_truth(keywords, df_method_names)
@@ -44,5 +44,7 @@ if __name__ == '__main__':
     # print(list(grnd_dict.keys()), list(grnd_dict.values()))
     # grnd_frame = pd.DataFrame.from_dict(grnd_dict, orient='index', columns=['labels'])
     # print(grnd_frame)
-    grnd_frame.to_csv(f'ground_truth_{file_name}', index=False)
-    print(f'Ground truth labels are saved in ground_truth_{file_name}')
+    sep = '.'
+
+    grnd_frame.to_csv(f'{file_path.split(sep, 1)[0]}_ground_truth.csv', index=False)
+    print(f'Ground truth labels are saved in {file_path.split(sep, 1)[0]}_ground_truth.csv')
