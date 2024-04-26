@@ -2,7 +2,7 @@ Method_Name,labels
 traverseSchemas,0
 getSchemaDocument1,0
 findDependentNamespaces,0
-getGlobalDecl,0
+getGlobalDecl,5
 getGlobalTypeDecl,0
 prepareForParse,0
 parseSchema,0
@@ -36,7 +36,7 @@ addNewGrammarLocations,0
 expandImportList,0
 getSchemaGrammar,0
 expandGrammars,0
-prepareForTraverse,0
+prepareForTraverse,3
 expandRelatedComponents,0
 getGrpOrAttrGrpRedefinedByRestriction,0
 addGlobalComponent,0
@@ -63,7 +63,7 @@ expandRelatedTypeComponents,0
 expandRelatedComplexTypeComponents,0
 reportSharingError,0
 findXSDocumentForDecl,0
-constructTrees,0
+constructTrees,4
 updateImportList,0
 setDeclPool,0
 findGrammar,0
@@ -76,7 +76,7 @@ addGlobalElementDecls,0
 getGlobalGroupDecl,0
 expandRelatedParticleComponents,0
 getGlobalElementDecl,0
-buildGlobalNameRegistries,0
+buildGlobalNameRegistries,2
 expandRelatedAttributeUsesComponents,0
 resolveSchemaSource,0
 reportSchemaError,0

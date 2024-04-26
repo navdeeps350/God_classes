@@ -1,8 +1,8 @@
-PWD /Users/navdeepsinghbedi/project-01-god-classes-navdeeps350/Project Report
+PWD /Users/navdeepsinghbedi/project-01-god-classes-navdeeps350/Project_Report
 INPUT /usr/local/texlive/2024/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/navdeepsinghbedi/project-01-god-classes-navdeeps350/Project Report/main.tex
+INPUT /Users/navdeepsinghbedi/project-01-god-classes-navdeeps350/Project_Report/main.tex
 OUTPUT main.log
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -27,6 +27,14 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -58,8 +66,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty
@@ -273,6 +279,27 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT ./CoreDocumentImpl_silhouette_scores.png
+INPUT ./CoreDocumentImpl_silhouette_scores.png
+INPUT ./CoreDocumentImpl_silhouette_scores.png
+INPUT ./CoreDocumentImpl_silhouette_scores.png
+INPUT ./CoreDocumentImpl_silhouette_scores.png
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
+INPUT ./DTDGrammar_silhouette_scores.png
+INPUT ./DTDGrammar_silhouette_scores.png
+INPUT ./DTDGrammar_silhouette_scores.png
+INPUT ./DTDGrammar_silhouette_scores.png
+INPUT ./DTDGrammar_silhouette_scores.png
+INPUT ./XIncludeHandler_silhouette_scores.png
+INPUT ./XIncludeHandler_silhouette_scores.png
+INPUT ./XIncludeHandler_silhouette_scores.png
+INPUT ./XIncludeHandler_silhouette_scores.png
+INPUT ./XIncludeHandler_silhouette_scores.png
+INPUT ./XSDHandler_silhouette_scores.png
+INPUT ./XSDHandler_silhouette_scores.png
+INPUT ./XSDHandler_silhouette_scores.png
+INPUT ./XSDHandler_silhouette_scores.png
+INPUT ./XSDHandler_silhouette_scores.png
 INPUT main.aux
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
@@ -280,5 +307,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb

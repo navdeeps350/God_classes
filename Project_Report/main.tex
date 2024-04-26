@@ -5,6 +5,7 @@
 % TEMPLATE COMMENTS FORMATTING
 \usepackage{amsmath,amssymb}
 \usepackage{ifthen}
+\usepackage{subcaption}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[most]{tcolorbox}
 \usepackage{soul}
@@ -167,7 +168,32 @@ The summarization of silhouette scores for the optimal number of clusters is as 
     \item For the file \textit{XSDHandler.csv} the optimal number of clusters in case of both the clustering algorithms are achived at k = 2. The silhouette scores for the optimal number of clusters can be found in the \textit{XSDHandler\_silhouette\_scores.csv} file in the \textit{results\_csv} folder.
 \end{enumerate}
 The corresponding graphs for the silhouette scores for the optimal number of clusters can be found in the \textit{results\_csv} folder.
-
+\begin{figure}
+	\centering
+	\begin{minipage}{0.45\linewidth}
+	     \includegraphics[width=\linewidth]{CoreDocumentImpl_silhouette_scores.png}
+	      \subcaption{CoreDocumentImpl}
+	      \label{fig:subfig1}
+	\end{minipage}
+	\begin{minipage}{0.45\linewidth}
+	    \includegraphics[width=\linewidth]{DTDGrammar_silhouette_scores.png}
+	    \subcaption{DTDGrammar}
+	    \label{fig:subfig2}
+        \end{minipage} \\	
+	\begin{minipage}{0.45\linewidth}
+	    \includegraphics[width=\linewidth]{XIncludeHandler_silhouette_scores.png}
+	    \subcaption{XIncludeHandler}
+	\label{fig:subfig3}
+         \end{minipage}
+         \begin{minipage}{0.45\linewidth}
+	    \includegraphics[width=\linewidth]{XSDHandler_silhouette_scores.png}
+	    \subcaption{XSDHandler}
+	\label{fig:subfig4}
+         \end{minipage}
+\caption{Silhouette scores for the clusters from k = 2 to 59.}
+\label{fig:fig1}
+\end{figure}
+The corresponding graphs for the silhouette scores for the clusters from k = 2 to 59, for the God Classes are shown in the fig.\ref{fig:fig1}
 % (1) Report data about the clusters produced by the two algorithms at various k
 % (\#clusters, size of clusters, silhouette scores). You may use any suitable format (table, graph, ...).
 
@@ -195,7 +221,8 @@ Still, it is a good approximation of the actual ground truth
 % \templateInstruction{Comment briefly on the strengths \& weaknesses of our ground truth.}
 
 \subsection{Precision and Recall}
-For calculating the precision and recall scores, we used the ground truth labels and thecalculated cluster labels obtained from the clustering algorithms. The number of clusters in the clustering algorithms is set to the number of clusters in the ground truth labels. The code for this step can be found in the \textit{prec\_recall.py} file.
+For calculating the precision and recall scores, we used the ground truth labels and the calculated cluster labels obtained from the clustering algorithms. The number of clusters in the clustering algorithms is set to the number of clusters in the ground truth labels. The code for this step can be found in the \textit{prec\_recall.py} file. We used the number of cluster labels in the ground truth instead of the optimal number of clusters give by the silhouette score because of in some of the God classes the silhouette score increases with the number of clusters and it wouldn't make sense to use for example,
+5 clusters for the ground truth and 59 clusters for the clustering algorithms.
 \begin{table}[]
     \centering
     \begin{tabular}{lcccc}
@@ -204,10 +231,10 @@ For calculating the precision and recall scores, we used the ground truth labels
         \hline
          &Prec. & Recall & Prec. & Recall \\
         \hline\hline
-        {CoreDocumentImpl} & {0.0036} & {0.0040}& {0.0026}& {0.0040}\\
-       {DTDGrammar} & {0.0149} & {0.0129}& {0.0091}& {0.0059}\\
-        {XIncludeHandler} & {0.0003} & {0.0002}& {0.0002}& {0.0002}\\
-        {XSDHandler} & {0.0000} & {0.0000}& {0.0000}& {0.0000}\\
+        {CoreDocumentImpl} & {0.47} & {0.52}& {0.45}& {0.69}\\
+       {DTDGrammar} & {0.54} & {0.47}& {0.54}& {0.35}\\
+        {XIncludeHandler} & {0.66} & {0.46}& {0.67}& {0.77}\\
+        {XSDHandler} & {0.35} & {0.72}& {0.36}& {0.89}\\
         \hline
     \end{tabular}
     \caption{Evaluation Summary}
@@ -218,6 +245,7 @@ Precision and Recall, for the configurations found in Section \ref{sec:clusterin
 
 
 \subsection{Practical Usefulness}
-\templateInstruction{Discuss the practical usefulness of the obtained code refactoring assistant in a realistic setting (1 paragraph).}
-
+% \templateInstruction{Discuss the practical usefulness of the obtained code refactoring assistant in a realistic setting (1 paragraph).}
+The practical usefulness of the obtained code refactoring assistant in a realistic setting is that it can be used to identify the God classes in the repository and then can be used to refactor the code by breaking the God classes into smaller classes with single responsibility. 
+This will make the code more maintainable and understandable. 
 \end{document}

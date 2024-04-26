@@ -19,7 +19,8 @@ class precision_recall:
 
     def get_sets(self, data_frame):
         pair_set = set()
-        for i, lst in enumerate(list(self.cluster_keys_by_value(data_frame.to_dict()['labels']).values())):
+        data_frame_l = {k.lower(): v for k, v in data_frame.to_dict()['labels'].items()}
+        for i, lst in enumerate(list(self.cluster_keys_by_value(data_frame_l).values())):
             for c in list(combinations(lst, 2)):
                 pair_set.add(frozenset(c))
         return pair_set
@@ -42,9 +43,9 @@ if __name__ == '__main__':
     prec_rec = precision_recall(df_clustering, df_ground_truth)
 
     precision, recall = prec_rec.calculate_precision_recall()
-    print(f'Precision: {precision}, Recall: {recall}')
-    # f_score = 2 * (precision * recall) / (precision + recall)
+    # print(f'Precision: {precision}, Recall: {recall}')
+    f_score = 2 * (precision * recall) / (precision + recall)
 
-    # print(f'Precision: {precision}, Recall: {recall}, F1 Score: {f_score}')
+    print(f'Precision: {precision}, Recall: {recall}, F1 Score: {f_score}')
 
     

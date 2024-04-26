@@ -28,8 +28,8 @@ if __name__ == '__main__':
     clustering_file_path = input('Enter the path of the file containing the clustering results: ')
     df_feature = pd.read_csv(feature_file_path, index_col=0)
     # print(df_feature.shape)
-    pca = PCA(2)
-    df_feature_2d = pca.fit_transform(df_feature)
+    # pca = PCA(2)
+    # df_feature_2d = pca.fit_transform(df_feature)
     # print(df_feature_2d.shape)
 
     try:
@@ -59,9 +59,12 @@ if __name__ == '__main__':
         plt.xlabel('Number of clusters')
         plt.ylabel('Silhouette score')
         plt.legend()
-
+        
         sep = '.'
-        plt.savefig(f'{feature_file_path.split(sep, 1)[0]}_silhouette_scores.png')
+        old_path = f'{feature_file_path.split(sep, 1)[0]}_silhouette_scores.png'
+        new_path = old_path.replace('results_csv', 'Project_Report')
+        # print(f'{feature_file_path.split(sep, 1)[0]}_silhouette_scores.png')
+        plt.savefig(new_path)
         plt.show()
         
         df_scores.to_csv(f'{feature_file_path.split(sep, 1)[0]}_silhouette_scores.csv', index=False)
