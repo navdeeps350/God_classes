@@ -58,7 +58,7 @@ The project goes as follows:
 \begin{enumerate}
     \item We start with identifying God classes inside the given \textit{xerces2-j-src} repository.
     \item Next we extract the feature vectors of the classes based on the class methods and attributes and field methods and attributes.
-    \item Then we clustering algorithms such as k-Means and Agglomerative to cluster the God classes based on the feature vectors.
+    \item Then we clustering algorithms such as k-means and Agglomerative to cluster the God classes based on the feature vectors.
     \item Finally we measure the quality of the God class partitions using Precision and Recall scores.
 \end{enumerate}
 
@@ -116,7 +116,7 @@ In the second step, we extract the feature vectors of the extracted God classes 
     the method names present in the class and also the fields and methods accessed in the particular method in that class.
     Doing this we only take the methods and fields present in the God class.
     \item We populate the nested dictionary with the method name as a key and the corresponding valid field and method names present in that method with their counter (inner dictionary) as the value. 
-    \item Then we create aq dataframe with all the methods present in the class as rows and all the valid fields and methods in class as columns.
+    \item Then we create a dataframe with all the methods present in the class as rows and all the valid fields and methods (used atleast once) in class as columns.
     \item Finally we populate the data frame accordingly with the help of dictionary and replace the counter value with 1's and 0's if the corresponding valid field and method is accessed in the given method or not.
 \end{enumerate}
 
@@ -138,25 +138,24 @@ Table \ref{tab:feat_vec} shows aggregate numbers regarding the extracted feature
 \end{table}
 
 The code for this step can be found in \textit{extract\_feature\_vectors.py} file.
-The corresponding output file is named \textit{filepath.csv} in the \textit{results\_csv} folder.
+The corresponding output file is named \textit{filepath.csv} (different for different file paths) in the \textit{results\_csv} folder.
 
 \section{Clustering}
 \label{sec:clustering}
 
 \subsection{Algorithm Configurations}
 % \templateInstruction{Report/comment the algorithm configurations (distance function, linkage rule, etc.). You may do so in any form you feel suited, but a short paragraph of text is probably sufficient.}
-Two algorithms were used for clustering: Agglomerative and K-Means. For Agglomerative clustering, the distance function used was Euclidean, 
-and the linkage rule was Ward. In both the casses the feature vectors file created in the previous step was used as an input and the 
+Two algorithms were used for clustering: Agglomerative and k-means. For Agglomerative clustering, the distance function used was Euclidean. In both the casses the feature vectors file created in the previous step was used as an input and the 
 number of clusters was asked from the user as input. The code for this step can be found in \textit{k\_means.py} and \textit{hierarchical.py} file.
 And the results of the clustering can be found in the \textit{results\_csv} folder and the nomenclature of the different results file is explained in the code.
 Both the files can be run by providing the path to the feature vectors file created in the Part-02 of this project present in the \textit{results\_csv} folder and the number of clusters as an argument to the script.
 
-\subsection{Testing Various K \& Silhouette Scores}
+\subsection{Testing Various k \& Silhouette Scores}
 The next step is to test the clustering algorithms for various values of k. The results of the clustering are evaluated using the silhouette score.
 The silhouette score is a measure of how similar an object is to its cluster compared to other clusters. The silhouette score ranges from -1 to 1, where a high value indicates that the object is well matched to its own cluster and poorly matched to neighboring clusters.
 The code for this step can be found in \textit{silhouette.py} file.
 To run the code, the user either can provide just the path to the feature vectors file as an argument to the script or can provide both the path to the feature vectors file and the path to the corresponding cluster file created in the last part as an argument to the script.
-In the first case, the script will run the clustering for the values of k from 2 to 59 and will calculate the corresponding silhouette score for each value of k. In the second case, the script will calculate the silhouette score for the given cluster file.
+In the first case, the script will run the clustering for the values of k from 2 to 59 and will calculate the corresponding silhouette score for each value of k and for both the algorithms. In the second case, the script will calculate the silhouette score for the given cluster file.
 
 The output of the script is a file named \textit{filename\_silhouette\_scores.csv} in the \textit{results\_csv} folder in the first case and in the second case it is printed on the console.
 
@@ -215,13 +214,16 @@ The cluster labeles are then converted into numerical values for the evaluation 
 
 Though the ground truth is not perfect. The drawback of the ground truth is that it is based on the keywords present in the method names and the keywords are not exhaustive, so the ground truth may not be perfect.
 And in the case of the multiple ground truth labels for a single method, we have taken the first keyword as the cluster label for that method, which may not be the correct way to label the method.
-Still, it is a good approximation of the actual ground truth
+Still, it is a good approximation of the actual ground truth.
 
 
 % \templateInstruction{Comment briefly on the strengths \& weaknesses of our ground truth.}
 
 \subsection{Precision and Recall}
-For calculating the precision and recall scores, we used the ground truth labels and the calculated cluster labels obtained from the clustering algorithms. The number of clusters in the clustering algorithms is set to the number of clusters in the ground truth labels. The code for this step can be found in the \textit{prec\_recall.py} file. We used the number of cluster labels in the ground truth instead of the optimal number of clusters give by the silhouette score because of in some of the God classes the silhouette score increases with the number of clusters and it wouldn't make sense to use for example,
+For calculating the precision and recall scores, we used the ground truth labels and the calculated cluster labels obtained from the clustering algorithms. 
+The number of clusters in the clustering algorithms is set to the number of clusters in the ground truth labels. The code for this step can be found in the \textit{prec\_recall.py} file.
+To run the code, the user needs to provide the path to the ground truth file and the path to the cluster file as an argument to the script.
+We used the number of cluster labels in the ground truth instead of the optimal number of clusters give by the silhouette score because of in some of the God classes the silhouette score increases with the number of clusters and it wouldn't make sense to use for example,
 5 clusters for the ground truth and 59 clusters for the clustering algorithms.
 \begin{table}[]
     \centering
