@@ -7,6 +7,5 @@ Please follow the instructions provided in the project slides.
 For your convenience, the source code to be analyzed (xerces2)
  has already been added to this repository (*/resources/xerces2-j-src*).
 
-**Attention**: Please consider the submission instructions available on iCorsi.
 
-**Report**: You may want to use the template distributed on iCorsi.
+For more information, **project_report** folder (Navdeep_project_report_01 and PROJ-01-God_classes.pdf). It contains project description as well as project report.
